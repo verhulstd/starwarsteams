@@ -48,7 +48,7 @@ server.get("/api/:student/team/", (req, res) => {
 server.post("/api/:student/team", (req, res) => {
   if (isNaN(req.body.id)) {
     res.status(500).send({
-      message: "id must be a number",
+      message: "invalid data",
     });
     return null;
   }
@@ -65,7 +65,7 @@ server.post("/api/:student/team", (req, res) => {
     return null;
   }
 
-  team[req.params.student].push(req.body.id);
+  team[req.params.student].push(parseInt(req.body.id));
   res.send({
     message: "character added",
   });
