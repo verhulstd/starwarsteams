@@ -46,6 +46,12 @@ server.get("/api/:student/team/", (req, res) => {
 });
 
 server.post("/api/:student/team", (req, res) => {
+  if (isNaN(req.body.id)) {
+    res.status(500).send({
+      message: "id must be a number",
+    });
+    return null;
+  }
   if (team[req.params.student].length === 5) {
     res.status(500).send({
       message: "team is full",
