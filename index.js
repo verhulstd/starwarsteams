@@ -82,7 +82,7 @@ server.delete("/api/:student/team/:id", (req, res) => {
     team[req.params.student].indexOf(parseInt(req.params.id)),
     1
   );
-  res.send({ message: "member removed" });
+  res.send({ message: "member removed " });
 });
 
 server.listen("1234");
